@@ -21,7 +21,7 @@ js = re.search(r'/\*INIT-START\*/(.*?)/\*INIT-END\*/', src, re.S).group(1).strip
 
 title = 'Sushma Karnati — AI Engineer | RAG, Multi-Agent Systems & LLM Validation'
 desc = ('Portfolio of Sushma Karnati, AI engineer in Hyderabad building production RAG pipelines, '
-        'multi-agent systems and generative-AI products with structured outputs, validation and observability.')
+        'multi-agent systems and multimodal AI products like PocketPins Smart Collections with structured outputs, validation and observability.')
 ld = {
     "@context": "https://schema.org",
     "@type": "Person",
@@ -31,10 +31,10 @@ ld = {
     "image": SITE + "og.png",
     "email": "mailto:sushmakarnati14@gmail.com",
     "address": {"@type": "PostalAddress", "addressLocality": "Hyderabad", "addressCountry": "IN"},
-    "worksFor": {"@type": "Organization", "name": "Arna Intelligence"},
+    "worksFor": [{"@type": "Organization", "name": "Buntikki Technologies", "url": "https://www.buntikki.com/"}, {"@type": "Organization", "name": "Arna Intelligence"}],
     "alumniOf": {"@type": "CollegeOrUniversity", "name": "JNTU Hyderabad"},
     "knowsAbout": ["Retrieval-Augmented Generation", "Multi-agent systems", "LLM evaluation", "LangChain",
-                   "Gemini", "FastAPI", "pgvector", "Computer vision"],
+                   "Gemini", "Multimodal AI", "FastAPI", "pgvector", "Computer vision"],
     "sameAs": ["https://github.com/karnatisushma", "https://linkedin.com/in/sushmakarnati"]
 }
 html = f'''<!doctype html>
