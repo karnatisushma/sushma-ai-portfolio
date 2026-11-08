@@ -1,0 +1,759 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Sushma Karnati — AI Engineer</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&amp;family=Inter:wght@400;500;600&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap">
+<style>
+body{margin:0;background:#0C0E0D;color:#EDEEE9;font-family:Inter,system-ui,-apple-system,sans-serif;-webkit-font-smoothing:antialiased}
+a{color:#EDEEE9;text-decoration:none}a:hover{color:#FFFFFF}
+html{scroll-behavior:smooth}
+::selection{background:var(--ac,#D4F25A);color:#0C0E0D}
+a:focus-visible,button:focus-visible{outline:2px solid var(--ac,#D4F25A);outline-offset:3px}
+button{font:inherit;color:inherit;background:none;border:0;padding:0;cursor:pointer}
+
+@keyframes blink{0%,49%{opacity:1}50%,100%{opacity:0}}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(212,242,90,.45)}70%{box-shadow:0 0 0 10px rgba(212,242,90,0)}100%{box-shadow:0 0 0 0 rgba(212,242,90,0)}}
+@keyframes logIn{from{opacity:0;transform:translateX(-8px)}to{opacity:1;transform:none}}
+@keyframes mq{to{transform:translateX(-50%)}}
+@keyframes pkt{from{left:-60px}to{left:100%}}
+@keyframes nd{0%,100%{opacity:.25}50%{opacity:1}}
+@keyframes spin{to{transform:rotate(360deg)}}
+@keyframes cue{0%{transform:scaleY(0);transform-origin:top}45%{transform:scaleY(1);transform-origin:top}55%{transform:scaleY(1);transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom}}
+@keyframes fadeUp{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+
+.is-js .rv{opacity:0;transform:translateY(32px);transition:opacity 1s cubic-bezier(.2,.7,.2,1),transform 1s cubic-bezier(.2,.7,.2,1)}
+.is-js .rv.in{opacity:1;transform:none}
+
+.has-cursor,.has-cursor a,.has-cursor button{cursor:none}
+.cur-dot,.cur-ring{position:fixed;left:0;top:0;pointer-events:none;opacity:0;transition:opacity .25s}
+.cur-dot{z-index:10001}
+.cur-ring{z-index:10000}
+.has-cursor .cur-dot,.has-cursor .cur-ring{opacity:1}
+.has-cursor.cur-out .cur-dot,.has-cursor.cur-out .cur-ring{opacity:0}
+.cur-dot i{display:block;width:6px;height:6px;margin:-3px 0 0 -3px;border-radius:50%;background:var(--ac,#D4F25A);transition:transform .25s}
+.cur-ring .ci{width:38px;height:38px;margin:-19px 0 0 -19px;border:1px solid rgba(237,238,233,.4);border-radius:50%;display:flex;align-items:center;justify-content:center;box-sizing:border-box;transition:width .4s cubic-bezier(.2,.7,.2,1),height .4s cubic-bezier(.2,.7,.2,1),margin .4s cubic-bezier(.2,.7,.2,1),background .3s,border-color .3s,transform .15s;font:500 10px 'JetBrains Mono',ui-monospace,monospace;letter-spacing:.08em;text-transform:uppercase;color:#0C0E0D}
+.cur-ring .ci span{opacity:0;transition:opacity .2s}
+.cur-ring.hov .ci{width:76px;height:76px;margin:-38px 0 0 -38px;background:var(--ac,#D4F25A);border-color:var(--ac,#D4F25A)}
+.cur-ring.hov .ci span{opacity:1}
+.cur-ring.hov + .cur-dot i,.cur-hov .cur-dot i{transform:scale(0)}
+.cur-ring.down .ci{transform:scale(.82)}
+
+.ul{position:relative;color:#A8AEAA;transition:color .3s}
+.ul::after{content:'';position:absolute;left:14px;right:14px;bottom:8px;height:1px;background:var(--ac,#D4F25A);transform:scaleX(0);transform-origin:right;transition:transform .45s cubic-bezier(.2,.7,.2,1)}
+.ul:hover{color:#EDEEE9}.ul:hover::after{transform:scaleX(1);transform-origin:left}
+
+.btn-p{transition:transform .35s cubic-bezier(.2,.7,.2,1),box-shadow .35s}
+.btn-p:hover{color:#0C0E0D;box-shadow:0 10px 40px -12px var(--ac,#D4F25A)}
+.btn-p svg,.btn-g svg{transition:transform .35s cubic-bezier(.2,.7,.2,1)}
+.btn-p:hover svg,.btn-g:hover svg{transform:translateX(4px)}
+.btn-g{transition:border-color .3s,background .3s,transform .35s cubic-bezier(.2,.7,.2,1)}
+.btn-g:hover{border-color:var(--ac,#D4F25A) !important;background:rgba(237,238,233,.04)}
+.btn-g.diag:hover svg{transform:translate(3px,-3px)}
+
+.spot{transition:border-color .4s}
+.spot:hover{border-color:#3F4541 !important;background-image:radial-gradient(520px circle at var(--mx,50%) var(--my,50%),rgba(237,238,233,.055),transparent 55%)}
+
+.ico{transition:transform .5s cubic-bezier(.2,.7,.2,1),color .3s,border-color .3s}
+.lift:hover .ico{transform:rotate(-10deg) scale(1.1);color:var(--ac,#D4F25A);border-color:var(--ac,#D4F25A) !important}
+.lift{transition:transform .5s cubic-bezier(.2,.7,.2,1),background .4s}
+.lift:hover{transform:translateY(-4px);background:#111413 !important}
+
+.mqw{overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
+.mq{display:flex;width:max-content;animation:mq 48s linear infinite}
+.mqw:hover .mq{animation-play-state:paused}
+
+.pnode{padding:10px 14px;border:1px solid #3A3F3C;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:12px;color:#B9BEBA;min-height:44px;display:flex;align-items:center;gap:8px;transition:border-color .3s,color .3s,background .3s,transform .3s}
+.pnode:hover{border-color:#6E7571;color:#EDEEE9}
+.pnode.on{border-color:var(--ac,#D4F25A);color:var(--ac,#D4F25A);background:rgba(212,242,90,.06);transform:translateY(-2px)}
+.pnode b{font-weight:500;opacity:.55}
+.track{position:relative;height:2px;background:#232725;overflow:hidden}
+.pkt{position:absolute;top:0;width:60px;height:2px;background:linear-gradient(90deg,transparent,var(--ac,#D4F25A));animation:pkt 2.8s linear infinite}
+.swap{animation:fadeUp .5s cubic-bezier(.2,.7,.2,1)}
+
+.nd{animation:nd 3.2s ease-in-out infinite}
+.spin{transform-origin:600px 300px;animation:spin 90s linear infinite}
+.cue{display:block;width:1px;height:48px;background:var(--ac,#D4F25A);animation:cue 2.2s cubic-bezier(.6,0,.2,1) infinite}
+
+.tl-dot{transition:background .4s,border-color .4s,box-shadow .4s}
+.tl-item.in .tl-dot{background:var(--ac,#D4F25A);border-color:var(--ac,#D4F25A);box-shadow:0 0 0 6px rgba(212,242,90,.12)}
+
+@media (max-width: 640px){nav .ul{display:none}}
+@media (prefers-reduced-motion: reduce){
+*,*::before,*::after{animation:none !important;transition:none !important}
+.is-js .rv{opacity:1;transform:none}
+html{scroll-behavior:auto}
+}
+</style>
+</helmet>
+
+<div ref="{{setRoot}}" class="{{rootClass}}" style="--ac: {{accent}}; font-family: Inter, system-ui, sans-serif; color: #EDEEE9; background: #0C0E0D; background-image: radial-gradient(rgba(237,238,233,0.045) 1px, transparent 1px); background-size: 28px 28px; min-height: 100vh; position: relative" onMouseMove="{{onMove}}" onMouseOver="{{onOver}}" onMouseDown="{{onDown}}" onMouseUp="{{onUp}}" onMouseLeave="{{onLeave}}" onMouseEnter="{{onEnter}}">
+
+<!-- custom cursor -->
+<div ref="{{setRing}}" class="{{ringClass}}" aria-hidden="true"><div class="ci"><span>{{hoverLabel}}</span></div></div>
+<div ref="{{setDot}}" class="cur-dot" aria-hidden="true"><i></i></div>
+
+<!-- scroll progress -->
+<div aria-hidden="true" style="position: fixed; top: 0; left: 0; right: 0; height: 2px; z-index: 60; pointer-events: none">
+<div ref="{{setBar}}" style="height: 2px; background: {{accent}}; transform: scaleX(0); transform-origin: left; will-change: transform"></div>
+</div>
+
+<!-- NAV -->
+<header style="position: sticky; top: 0; z-index: 50; border-bottom: 1px solid #222624; background: rgba(12,14,13,0.78); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px)">
+<nav aria-label="Primary" style="max-width: 1240px; margin: 0 auto; padding: 14px clamp(20px, 5vw, 64px); display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px">
+<a href="#top" data-cursor="Top" style="display: flex; align-items: center; gap: 12px; min-height: 44px">
+<span style="width: 36px; height: 36px; border: 1px solid #3A3F3C; display: flex; align-items: center; justify-content: center; font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 13px; font-weight: 500; color: {{accent}}">SK</span>
+<span style="font-size: 15px; font-weight: 500; letter-spacing: -0.01em">Sushma Karnati</span>
+</a>
+<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 2px; font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 13px">
+<a class="ul" href="#story" style="padding: 12px 14px">/story</a>
+<a class="ul" href="#work" style="padding: 12px 14px">/work</a>
+<a class="ul" href="#craft" style="padding: 12px 14px">/craft</a>
+<a class="ul" href="#journey" style="padding: 12px 14px">/journey</a>
+<button type="button" onClick="{{toggleSound}}" aria-pressed="{{soundPressed}}" aria-label="Toggle interface sound" data-cursor="{{soundCursor}}" style="width: 44px; height: 44px; display: flex; align-items: center; justify-content: center; color: #A8AEAA; margin-left: 4px">
+<sc-if value="{{soundOn}}" hint-placeholder-val="{{ false }}">
+<svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="{{accent}}" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M11 5L6 9H3v6h3l5 4V5z"></path><path d="M15.5 8.5a5 5 0 0 1 0 7"></path><path d="M18.5 5.5a9 9 0 0 1 0 13"></path></svg>
+</sc-if>
+<sc-if value="{{soundOff}}" hint-placeholder-val="{{ true }}">
+<svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M11 5L6 9H3v6h3l5 4V5z"></path><path d="M16 9l5 6"></path><path d="M21 9l-5 6"></path></svg>
+</sc-if>
+</button>
+<a class="btn-p" href="mailto:sushmakarnati14@gmail.com" data-cursor="Write" onMouseMove="{{mag}}" onMouseLeave="{{magOut}}" style="padding: 12px 18px; margin-left: 6px; background: {{accent}}; color: #0C0E0D; font-weight: 500; min-height: 44px; box-sizing: border-box; display: flex; align-items: center">Get in touch</a>
+</div>
+</nav>
+</header>
+
+<!-- HERO -->
+<section id="top" style="position: relative; overflow: hidden">
+<svg aria-hidden="true" viewBox="0 0 1200 600" preserveAspectRatio="xMaxYMin slice" style="position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; opacity: 0.55">
+<g class="spin" fill="none" stroke="#2A2E2C" stroke-width="1">
+<circle cx="600" cy="300" r="520" stroke-dasharray="2 10"></circle>
+<circle cx="600" cy="300" r="380" stroke-dasharray="1 14"></circle>
+</g>
+<g fill="none" stroke="#262A28" stroke-width="1">
+<path d="M880 90 L1010 170 L1120 110 M1010 170 L980 300 L1100 360 M980 300 L860 380 M1100 360 L1150 250"></path>
+</g>
+<g fill="{{accent}}">
+<circle class="nd" cx="880" cy="90" r="3"></circle>
+<circle class="nd" cx="1010" cy="170" r="4" style="animation-delay: .6s"></circle>
+<circle class="nd" cx="1120" cy="110" r="3" style="animation-delay: 1.2s"></circle>
+<circle class="nd" cx="980" cy="300" r="3" style="animation-delay: 1.8s"></circle>
+<circle class="nd" cx="1100" cy="360" r="4" style="animation-delay: 2.4s"></circle>
+<circle class="nd" cx="860" cy="380" r="3" style="animation-delay: .9s"></circle>
+<circle class="nd" cx="1150" cy="250" r="3" style="animation-delay: 1.5s"></circle>
+</g>
+</svg>
+
+<div style="position: relative; max-width: 1240px; margin: 0 auto; padding: clamp(56px, 8vw, 112px) clamp(20px, 5vw, 64px) 72px; display: flex; flex-direction: column; gap: 48px">
+<div style="display: flex; align-items: center; gap: 12px; font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 13px; color: #A8AEAA; letter-spacing: 0.06em; text-transform: uppercase">
+<span style="width: 8px; height: 8px; border-radius: 50%; background: {{accent}}; animation: pulse 2s infinite"></span>
+<span>AI Engineer · RAG · Agents · Hyderabad</span>
+</div>
+
+<h1 style="margin: 0; font-family: 'Instrument Serif', Georgia, serif; font-weight: 400; font-size: clamp(54px, 8.6vw, 128px); line-height: 1; letter-spacing: -0.03em">I build LLM systems<br>that <span style="display: inline-block; height: 1.2em; margin-bottom: -0.2em; padding-right: 0.12em; overflow: hidden; vertical-align: top; line-height: 1"><span style="display: flex; flex-direction: column; transition: transform .8s cubic-bezier(.75,0,.2,1); transform: translateY({{wordY}})"><em style="height: 1.2em; color: {{accent}}">hold up.</em><em style="height: 1.2em; color: {{accent}}">ship.</em><em style="height: 1.2em; color: {{accent}}">cite sources.</em><em style="height: 1.2em; color: {{accent}}">scale.</em></span></span></h1>
+
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(440px, 100%), 1fr)); gap: clamp(40px, 6vw, 80px); align-items: end">
+<div style="display: flex; flex-direction: column; gap: 32px">
+<p style="margin: 0; max-width: 540px; font-size: clamp(17px, 1.5vw, 19px); line-height: 1.65; color: #B9BEBA; text-wrap: pretty">Getting a model to answer is the easy part. Getting it to answer <span style="color: #EDEEE9">correctly, with a source, in a shape your backend can trust</span> — that's the work I do.</p>
+<div style="display: flex; flex-wrap: wrap; gap: 12px">
+<a class="btn-p" href="#story" data-cursor="Read" onMouseMove="{{mag}}" onMouseLeave="{{magOut}}" style="display: flex; align-items: center; gap: 10px; padding: 16px 24px; background: {{accent}}; color: #0C0E0D; font-weight: 600; font-size: 15px">Read the story
+<svg aria-hidden="true" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.75" style="transform: rotate(90deg)"><path d="M3 8h10M9 4l4 4-4 4"></path></svg>
+</a>
+<a class="btn-g" href="#work" data-cursor="View" style="display: flex; align-items: center; gap: 10px; padding: 16px 24px; border: 1px solid #3A3F3C; font-weight: 500; font-size: 15px">Skip to the work
+<svg aria-hidden="true" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M3 8h10M9 4l4 4-4 4"></path></svg>
+</a>
+</div>
+</div>
+
+<!-- live log -->
+<div style="border: 1px solid #2A2E2C; background: rgba(17,20,19,0.9); font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 13px; line-height: 1.5; box-shadow: 0 40px 80px -40px rgba(0,0,0,.8)">
+<div style="display: flex; align-items: center; justify-content: space-between; padding: 12px 16px; border-bottom: 1px solid #2A2E2C; color: #8C938F">
+<div style="display: flex; gap: 6px"><span style="width: 10px; height: 10px; border-radius: 50%; background: #2F3431"></span><span style="width: 10px; height: 10px; border-radius: 50%; background: #2F3431"></span><span style="width: 10px; height: 10px; border-radius: 50%; background: #2F3431"></span></div>
+<span>globiculum — run.log</span>
+</div>
+<div style="padding: 20px; display: flex; flex-direction: column; gap: 9px">
+<div class="log" style="opacity: 0; animation: logIn .5s .3s forwards; color: #8C938F">$ <span style="color: #EDEEE9">analyse --from=common-core --to=cbse</span></div>
+<div style="opacity: 0; animation: logIn .5s .9s forwards; display: flex; justify-content: space-between; gap: 12px"><span style="color: #A8AEAA">› embed curriculum nodes</span><span style="color: {{accent}}">ok</span></div>
+<div style="opacity: 0; animation: logIn .5s 1.4s forwards; display: flex; justify-content: space-between; gap: 12px"><span style="color: #A8AEAA">› pgvector semantic match</span><span style="color: {{accent}}">ok</span></div>
+<div style="opacity: 0; animation: logIn .5s 1.9s forwards; display: flex; justify-content: space-between; gap: 12px"><span style="color: #A8AEAA">› percentile gap scoring</span><span style="color: {{accent}}">ok</span></div>
+<div style="opacity: 0; animation: logIn .5s 2.4s forwards; display: flex; justify-content: space-between; gap: 12px"><span style="color: #A8AEAA">› hallucination check</span><span style="color: {{accent}}">pass</span></div>
+<div style="opacity: 0; animation: logIn .5s 2.9s forwards; display: flex; justify-content: space-between; gap: 12px"><span style="color: #A8AEAA">› schema validation (JSON)</span><span style="color: {{accent}}">pass</span></div>
+<div style="opacity: 0; animation: logIn .5s 3.5s forwards; padding-top: 10px; margin-top: 4px; border-top: 1px dashed #2A2E2C; display: flex; justify-content: space-between; gap: 12px"><span>bridge plan ready</span><span style="color: {{accent}}">&lt; 10 min<span style="animation: blink 1.1s steps(1) infinite">▍</span></span></div>
+</div>
+</div>
+</div>
+
+<a href="#story" data-cursor="Scroll" style="align-self: flex-start; display: flex; align-items: center; gap: 14px; font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 12px; color: #8C938F; letter-spacing: 0.08em; text-transform: uppercase; min-height: 44px">
+<span style="display: block; width: 1px; height: 48px; background: #2A2E2C; position: relative; overflow: hidden"><span class="cue"></span></span>
+Scroll — the story starts below
+</a>
+</div>
+</section>
+
+<!-- MARQUEE -->
+<div class="mqw" aria-label="Tools I work with" style="border-top: 1px solid #222624; border-bottom: 1px solid #222624; background: #0F1211; padding: 18px 0">
+<div class="mq" style="gap: 0; font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 14px; color: #8C938F; white-space: nowrap">
+<span style="display: flex; gap: 40px; padding-right: 40px">
+<span>Python</span><span style="color: {{accent}}">✦</span><span>LangChain</span><span style="color: {{accent}}">✦</span><span>AutoGen</span><span style="color: {{accent}}">✦</span><span>Gemini</span><span style="color: {{accent}}">✦</span><span>GPT-4</span><span style="color: {{accent}}">✦</span><span>Llama 3</span><span style="color: {{accent}}">✦</span><span>pgvector</span><span style="color: {{accent}}">✦</span><span>ChromaDB</span><span style="color: {{accent}}">✦</span><span>FastAPI</span><span style="color: {{accent}}">✦</span><span>Supabase</span><span style="color: {{accent}}">✦</span><span>React</span><span style="color: {{accent}}">✦</span><span>Docker</span><span style="color: {{accent}}">✦</span><span>Cloud Run</span><span style="color: {{accent}}">✦</span><span>OpenCV</span><span style="color: {{accent}}">✦</span>
+</span>
+<span aria-hidden="true" style="display: flex; gap: 40px; padding-right: 40px">
+<span>Python</span><span style="color: {{accent}}">✦</span><span>LangChain</span><span style="color: {{accent}}">✦</span><span>AutoGen</span><span style="color: {{accent}}">✦</span><span>Gemini</span><span style="color: {{accent}}">✦</span><span>GPT-4</span><span style="color: {{accent}}">✦</span><span>Llama 3</span><span style="color: {{accent}}">✦</span><span>pgvector</span><span style="color: {{accent}}">✦</span><span>ChromaDB</span><span style="color: {{accent}}">✦</span><span>FastAPI</span><span style="color: {{accent}}">✦</span><span>Supabase</span><span style="color: {{accent}}">✦</span><span>React</span><span style="color: {{accent}}">✦</span><span>Docker</span><span style="color: {{accent}}">✦</span><span>Cloud Run</span><span style="color: {{accent}}">✦</span><span>OpenCV</span><span style="color: {{accent}}">✦</span>
+</span>
+</div>
+</div>
+
+<!-- PROLOGUE -->
+<section id="story" style="max-width: 1240px; margin: 0 auto; padding: clamp(96px, 12vw, 168px) clamp(20px, 5vw, 64px) clamp(72px, 9vw, 120px); display: grid; grid-template-columns: repeat(auto-fit, minmax(min(220px, 100%), 1fr)); gap: 40px">
+<div class="rv" style="font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 13px; color: {{accent}}; letter-spacing: 0.06em; text-transform: uppercase">Prologue</div>
+<div style="grid-column: span 3; min-width: min(100%, 680px); display: flex; flex-direction: column; gap: 36px">
+<p class="rv" style="margin: 0; font-family: 'Instrument Serif', Georgia, serif; font-size: clamp(36px, 4.4vw, 60px); line-height: 1.08; letter-spacing: -0.02em">Every LLM demo works.</p>
+<p class="rv" style="margin: 0; font-family: 'Instrument Serif', Georgia, serif; font-size: clamp(36px, 4.4vw, 60px); line-height: 1.08; letter-spacing: -0.02em; color: #8C938F; transition-delay: .1s">Then real users arrive — with messy inputs, edge cases, and zero tolerance for an answer the model made up.</p>
+<p class="rv" style="margin: 0; font-family: 'Instrument Serif', Georgia, serif; font-size: clamp(36px, 4.4vw, 60px); line-height: 1.08; letter-spacing: -0.02em; transition-delay: .2s">I work on what happens <em style="color: {{accent}}">after</em> the demo: retrieval that grounds, schemas that constrain, and checks that catch the model before your users do.</p>
+</div>
+</section>
+
+<!-- RECEIPTS -->
+<section ref="{{setMetrics}}" aria-label="The receipts" style="border-top: 1px solid #222624; border-bottom: 1px solid #222624; background: #0F1211">
+<div style="max-width: 1240px; margin: 0 auto; padding: 0 clamp(20px, 5vw, 64px); display: grid; grid-template-columns: repeat(auto-fit, minmax(min(240px, 100%), 1fr))">
+<div class="rv lift" data-cursor="" style="padding: 44px 28px; display: flex; flex-direction: column; gap: 12px; border-right: 1px solid #222624; background: transparent">
+<div style="font-family: 'Instrument Serif', Georgia, serif; font-size: clamp(60px, 6vw, 84px); line-height: 1; letter-spacing: -0.02em; color: {{accent}}; font-variant-numeric: tabular-nums">~{{c.a}}%</div>
+<div style="font-size: 15px; line-height: 1.45">less documentation effort — hours become minutes</div>
+<div style="font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 12px; color: #8C938F; text-transform: uppercase; letter-spacing: 0.06em">Video-to-SOP</div>
+</div>
+<div class="rv lift" style="padding: 44px 28px; display: flex; flex-direction: column; gap: 12px; border-right: 1px solid #222624; background: transparent; transition-delay: .08s">
+<div style="font-family: 'Instrument Serif', Georgia, serif; font-size: clamp(60px, 6vw, 84px); line-height: 1; letter-spacing: -0.02em; font-variant-numeric: tabular-nums">&lt;{{c.b}}<span style="font-size: 0.5em"> min</span></div>
+<div style="font-size: 15px; line-height: 1.45">from assessment to a personalised bridge plan</div>
+<div style="font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 12px; color: #8C938F; text-transform: uppercase; letter-spacing: 0.06em">Globiculum</div>
+</div>
+<div class="rv lift" style="padding: 44px 28px; display: flex; flex-direction: column; gap: 12px; border-right: 1px solid #222624; background: transparent; transition-delay: .16s">
+<div style="font-family: 'Instrument Serif', Georgia, serif; font-size: clamp(60px, 6vw, 84px); line-height: 1; letter-spacing: -0.02em; font-variant-numeric: tabular-nums">{{c.c}}</div>
+<div style="font-size: 15px; line-height: 1.45">specialised agents orchestrated in one risk workflow</div>
+<div style="font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 12px; color: #8C938F; text-transform: uppercase; letter-spacing: 0.06em">FinOps Multi-Agent</div>
+</div>
+<div class="rv lift" style="padding: 44px 28px; display: flex; flex-direction: column; gap: 12px; background: transparent; transition-delay: .24s">
+<div style="font-family: 'Instrument Serif', Georgia, serif; font-size: clamp(60px, 6vw, 84px); line-height: 1; letter-spacing: -0.02em; font-variant-numeric: tabular-nums">{{c.d}}+</div>
+<div style="font-size: 15px; line-height: 1.45">REST APIs behind one conversational assistant</div>
+<div style="font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 12px; color: #8C938F; text-transform: uppercase; letter-spacing: 0.06em">Betty Assistant</div>
+</div>
+</div>
+</section>
+
+<!-- CHAPTER 01 — WORK -->
+<section id="work" style="max-width: 1240px; margin: 0 auto; padding: clamp(96px, 11vw, 144px) clamp(20px, 5vw, 64px) 32px">
+<div class="rv" style="display: flex; flex-wrap: wrap; align-items: end; justify-content: space-between; gap: 24px; margin-bottom: 56px">
+<div style="display: flex; flex-direction: column; gap: 16px">
+<span style="font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 13px; color: {{accent}}; letter-spacing: 0.06em; text-transform: uppercase">Chapter 01 — The work</span>
+<h2 style="margin: 0; font-family: 'Instrument Serif', Georgia, serif; font-weight: 400; font-size: clamp(42px, 5.4vw, 72px); line-height: 1; letter-spacing: -0.02em">Four problems,<br>solved end to end.</h2>
+</div>
+<p style="margin: 0; max-width: 380px; font-size: 16px; line-height: 1.6; color: #A8AEAA">Each one designed, built and deployed by me — ingestion and retrieval, the agent, the guardrails, and the interface people actually use.</p>
+</div>
+
+<div style="display: flex; flex-direction: column; gap: 24px">
+
+<!-- CASE 1: Globiculum (interactive) -->
+<article class="rv spot" onMouseMove="{{spot}}" style="border: 1px solid #2A2E2C; background-color: #111413">
+<div style="padding: clamp(28px, 4vw, 52px); display: flex; flex-direction: column; gap: 40px">
+<div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px">
+<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 12px; font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 12px; color: #8C938F; text-transform: uppercase; letter-spacing: 0.06em">
+<span style="color: {{accent}}">/01</span><span>Flagship · EdTech</span><span>·</span><span>React + Supabase + Gemini</span>
+</div>
+<span style="font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 12px; color: #8C938F">Arna Intelligence · 2026</span>
+</div>
+
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr)); gap: 40px 56px">
+<div style="display: flex; flex-direction: column; gap: 20px">
+<h3 style="margin: 0; font-family: 'Instrument Serif', Georgia, serif; font-weight: 400; font-size: clamp(44px, 5vw, 68px); line-height: 0.95; letter-spacing: -0.02em">Globiculum</h3>
+<p style="margin: 0; font-size: 15px; line-height: 1.6; color: #A8AEAA">AI curriculum-transition platform</p>
+</div>
+<div style="display: flex; flex-direction: column; gap: 10px">
+<span style="font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 12px; color: #8C938F; text-transform: uppercase; letter-spacing: 0.06em">The problem</span>
+<p style="margin: 0; font-size: 17px; line-height: 1.6; color: #C6CAC7; text-wrap: pretty">A student moving from US Common Core to an Indian board hits a curriculum cliff — and nobody can say exactly where the gaps are, or what to study first.</p>
+</div>
+<div style="display: flex; flex-direction: column; gap: 10px">
+<span style="font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 12px; color: #8C938F; text-transform: uppercase; letter-spacing: 0.06em">The result</span>
+<p style="margin: 0; font-size: 17px; line-height: 1.6; color: #C6CAC7; text-wrap: pretty">A personalised gap analysis and phase-wise bridge plan in <span style="color: {{accent}}">under 10 minutes</span>, built to extend to ICSE, state boards and US state curricula.</p>
+</div>
+</div>
+
+<!-- interactive pipeline -->
+<div style="border: 1px solid #2A2E2C; background: #0D100F; padding: clamp(20px, 3vw, 32px); display: flex; flex-direction: column; gap: 24px">
+<div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 12px; font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 12px; color: #8C938F; text-transform: uppercase; letter-spacing: 0.06em">
+<span>How it works — tap a stage</span>
+<span>Stage <span style="color: {{accent}}">{{stage.num}}</span> / 06</span>
+</div>
+<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 8px">
+<sc-for list="{{stages}}" as="s" hint-placeholder-count="6">
+<button type="button" class="{{s.cls}}" onClick="{{s.pick}}" data-cursor="Step" aria-pressed="{{s.pressed}}"><b>{{s.num}}</b>{{s.label}}</button>
+<sc-if value="{{s.notLast}}" hint-placeholder-val="{{ true }}">
+<svg aria-hidden="true" width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="#4A504C" stroke-width="1.5"><path d="M3 8h10M9 4l4 4-4 4"></path></svg>
+</sc-if>
+</sc-for>
+</div>
+<div class="track" aria-hidden="true"><div class="pkt"></div><div style="position: absolute; left: 0; top: 0; height: 2px; background: {{accent}}; opacity: .35; width: {{stage.pct}}; transition: width .6s cubic-bezier(.2,.7,.2,1)"></div></div>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr)); gap: 24px 48px; align-items: start; min-height: 120px">
+<div style="display: flex; align-items: baseline; gap: 16px">
+<span style="font-family: 'Instrument Serif', Georgia, serif; font-size: 64px; line-height: 1; color: {{accent}}">{{stage.num}}</span>
+<span style="font-family: 'Instrument Serif', Georgia, serif; font-size: 36px; line-height: 1.1; letter-spacing: -0.01em">{{stage.title}}</span>
+</div>
+<p style="margin: 0; font-size: 16px; line-height: 1.65; color: #C6CAC7; text-wrap: pretty">{{stage.body}}</p>
+</div>
+</div>
+
+<div style="display: flex; flex-wrap: wrap; gap: 6px; font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 12px; color: #A8AEAA">
+<span style="padding: 6px 10px; background: #1A1E1C">Supabase pgvector</span><span style="padding: 6px 10px; background: #1A1E1C">Edge Functions (Deno/TS)</span><span style="padding: 6px 10px; background: #1A1E1C">Gemini</span><span style="padding: 6px 10px; background: #1A1E1C">JWT + rate limits</span><span style="padding: 6px 10px; background: #1A1E1C">React + Vite</span><span style="padding: 6px 10px; background: #1A1E1C">Knowledge graph</span><span style="padding: 6px 10px; background: #1A1E1C">PDF export</span>
+</div>
+</div>
+</article>
+
+<!-- CASES 2-4 -->
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(360px, 100%), 1fr)); gap: 24px">
+
+<article class="rv spot" onMouseMove="{{spot}}" style="border: 1px solid #2A2E2C; background-color: #111413; padding: clamp(24px, 3vw, 36px); display: flex; flex-direction: column; gap: 22px">
+<div style="display: flex; justify-content: space-between; align-items: center; gap: 12px">
+<div style="display: flex; flex-wrap: wrap; gap: 10px; font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 12px; color: #8C938F; text-transform: uppercase; letter-spacing: 0.06em"><span style="color: {{accent}}">/02</span><span>FinTech · Multi-agent</span></div>
+<svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#8C938F" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 3v6c0 4.5-3.4 8.3-8 9-4.6-.7-8-4.5-8-9V6l8-3z"></path><path d="M8.5 12l2.5 2.5 4.5-5"></path></svg>
+</div>
+<h3 style="margin: 0; font-family: 'Instrument Serif', Georgia, serif; font-weight: 400; font-size: 34px; line-height: 1.05; letter-spacing: -0.015em">Autonomous FinOps Multi-Agent</h3>
+<div style="display: flex; flex-direction: column; gap: 6px"><span style="font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 11px; color: #8C938F; text-transform: uppercase; letter-spacing: 0.08em">Problem</span><p style="margin: 0; font-size: 15px; line-height: 1.6; color: #B9BEBA">Fraud review needs a reason for every decision — and financial data shouldn't leave the building.</p></div>
+<div style="display: flex; flex-direction: column; gap: 6px"><span style="font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 11px; color: #8C938F; text-transform: uppercase; letter-spacing: 0.08em">Built</span><p style="margin: 0; font-size: 15px; line-height: 1.6; color: #B9BEBA">Five agents — Investigation, Policy-RAG, Decision, Action, Explanation — scoring risk 0–10 with reason codes and one of four actions: approve, verify, hold, review.</p></div>
+<div style="border-top: 1px solid #2A2E2C; padding-top: 20px; margin-top: auto; display: flex; flex-direction: column; gap: 6px">
+<span style="font-family: 'Instrument Serif', Georgia, serif; font-size: 60px; line-height: 1; color: {{accent}}">0</span>
+<span style="font-size: 14px; color: #A8AEAA">external API keys — runs fully local on Llama 3 via Ollama</span>
+</div>
+<div style="display: flex; flex-wrap: wrap; gap: 6px; font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 12px; color: #A8AEAA"><span style="padding: 6px 10px; background: #1A1E1C">FastAPI</span><span style="padding: 6px 10px; background: #1A1E1C">LangChain</span><span style="padding: 6px 10px; background: #1A1E1C">ChromaDB</span><span style="padding: 6px 10px; background: #1A1E1C">Ollama</span></div>
+</article>
+
+<article class="rv spot" onMouseMove="{{spot}}" style="border: 1px solid #2A2E2C; background-color: #111413; padding: clamp(24px, 3vw, 36px); display: flex; flex-direction: column; gap: 22px; transition-delay: .08s">
+<div style="display: flex; justify-content: space-between; align-items: center; gap: 12px">
+<div style="display: flex; flex-wrap: wrap; gap: 10px; font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 12px; color: #8C938F; text-transform: uppercase; letter-spacing: 0.06em"><span style="color: {{accent}}">/03</span><span>Automation · Vision</span></div>
+<svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#8C938F" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="1"></rect><path d="M10 9l5 3-5 3V9z"></path></svg>
+</div>
+<h3 style="margin: 0; font-family: 'Instrument Serif', Georgia, serif; font-weight: 400; font-size: 34px; line-height: 1.05; letter-spacing: -0.015em">Video-to-SOP</h3>
+<div style="display: flex; flex-direction: column; gap: 6px"><span style="font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 11px; color: #8C938F; text-transform: uppercase; letter-spacing: 0.08em">Problem</span><p style="margin: 0; font-size: 15px; line-height: 1.6; color: #B9BEBA">Turning a training video into a written SOP took someone hours of pausing, screenshotting and typing.</p></div>
+<div style="display: flex; flex-direction: column; gap: 6px"><span style="font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 11px; color: #8C938F; text-transform: uppercase; letter-spacing: 0.08em">Built</span><p style="margin: 0; font-size: 15px; line-height: 1.6; color: #B9BEBA">FFmpeg segmentation, OpenCV frames, perceptual-hash de-dup and multi-stage Gemini 2.0 understanding — shipped on autoscaling Cloud Run with retries and structured logs.</p></div>
+<div style="border-top: 1px solid #2A2E2C; padding-top: 20px; margin-top: auto; display: flex; flex-direction: column; gap: 6px">
+<span style="font-family: 'Instrument Serif', Georgia, serif; font-size: 60px; line-height: 1; color: {{accent}}">~97%</span>
+<span style="font-size: 14px; color: #A8AEAA">less documentation effort — a formatted Word SOP in minutes</span>
+</div>
+<div style="display: flex; flex-wrap: wrap; gap: 6px; font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 12px; color: #A8AEAA"><span style="padding: 6px 10px; background: #1A1E1C">Gemini 2.0</span><span style="padding: 6px 10px; background: #1A1E1C">OpenCV</span><span style="padding: 6px 10px; background: #1A1E1C">Docker</span><span style="padding: 6px 10px; background: #1A1E1C">Cloud Run</span></div>
+</article>
+
+<article class="rv spot" onMouseMove="{{spot}}" style="border: 1px solid #2A2E2C; background-color: #111413; padding: clamp(24px, 3vw, 36px); display: flex; flex-direction: column; gap: 22px; transition-delay: .16s">
+<div style="display: flex; justify-content: space-between; align-items: center; gap: 12px">
+<div style="display: flex; flex-wrap: wrap; gap: 10px; font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 12px; color: #8C938F; text-transform: uppercase; letter-spacing: 0.06em"><span style="color: {{accent}}">/04</span><span>Productivity · Agent</span></div>
+<svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#8C938F" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="15" rx="1"></rect><path d="M3 10h18M8 3v4M16 3v4"></path></svg>
+</div>
+<h3 style="margin: 0; font-family: 'Instrument Serif', Georgia, serif; font-weight: 400; font-size: 34px; line-height: 1.05; letter-spacing: -0.015em">Betty, AI Executive Assistant</h3>
+<div style="display: flex; flex-direction: column; gap: 6px"><span style="font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 11px; color: #8C938F; text-transform: uppercase; letter-spacing: 0.08em">Problem</span><p style="margin: 0; font-size: 15px; line-height: 1.6; color: #B9BEBA">Email, calendars, tasks and travel live across Google and Microsoft — and every switch costs focus.</p></div>
+<div style="display: flex; flex-direction: column; gap: 6px"><span style="font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 11px; color: #8C938F; text-transform: uppercase; letter-spacing: 0.08em">Built</span><p style="margin: 0; font-size: 15px; line-height: 1.6; color: #B9BEBA">GPT-4 intent and parameter extraction that handles relative dates and confirms before acting; Gmail, Google Calendar, Outlook and Outlook Calendar via OAuth 2.0 + MSAL.</p></div>
+<div style="border-top: 1px solid #2A2E2C; padding-top: 20px; margin-top: auto; display: flex; flex-direction: column; gap: 6px">
+<span style="font-family: 'Instrument Serif', Georgia, serif; font-size: 60px; line-height: 1; color: {{accent}}">15+</span>
+<span style="font-size: 14px; color: #A8AEAA">REST APIs, one conversation — with audit-friendly task tracking</span>
+</div>
+<div style="display: flex; flex-wrap: wrap; gap: 6px; font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 12px; color: #A8AEAA"><span style="padding: 6px 10px; background: #1A1E1C">GPT-4</span><span style="padding: 6px 10px; background: #1A1E1C">Flask</span><span style="padding: 6px 10px; background: #1A1E1C">React</span><span style="padding: 6px 10px; background: #1A1E1C">Material UI</span></div>
+</article>
+
+</div>
+</div>
+</section>
+
+<!-- CHAPTER 02 — CRAFT -->
+<section id="craft" style="max-width: 1240px; margin: 0 auto; padding: clamp(96px, 11vw, 144px) clamp(20px, 5vw, 64px)">
+<div class="rv" style="display: flex; flex-direction: column; gap: 16px; margin-bottom: 56px">
+<span style="font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 13px; color: {{accent}}; letter-spacing: 0.06em; text-transform: uppercase">Chapter 02 — The craft</span>
+<h2 style="margin: 0; max-width: 880px; font-family: 'Instrument Serif', Georgia, serif; font-weight: 400; font-size: clamp(42px, 5.4vw, 72px); line-height: 1; letter-spacing: -0.02em; text-wrap: balance">A demo is a prompt. A product is <em style="color: {{accent}}">everything around it.</em></h2>
+</div>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(260px, 100%), 1fr)); gap: 1px; background: #2A2E2C; border: 1px solid #2A2E2C">
+<div class="rv lift" style="background: #0C0E0D; padding: 32px 28px 36px; display: flex; flex-direction: column; gap: 18px">
+<div class="ico" style="width: 48px; height: 48px; border: 1px solid #3A3F3C; display: flex; align-items: center; justify-content: center; color: #EDEEE9"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="8" ry="3"></ellipse><path d="M4 5v6c0 1.7 3.6 3 8 3s8-1.3 8-3V5"></path><path d="M4 11v6c0 1.7 3.6 3 8 3s8-1.3 8-3v-6"></path></svg></div>
+<div style="display: flex; align-items: baseline; gap: 10px"><span style="font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 12px; color: #8C938F">01</span><h3 style="margin: 0; font-size: 21px; font-weight: 600; letter-spacing: -0.01em">Ground it</h3></div>
+<p style="margin: 0; font-size: 15px; line-height: 1.6; color: #A8AEAA">Retrieval over real sources, with source URLs injected into the answer — so every claim can be traced.</p>
+<span style="margin-top: auto; font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 12px; color: #8C938F">in → Globiculum, FinOps</span>
+</div>
+<div class="rv lift" style="background: #0C0E0D; padding: 32px 28px 36px; display: flex; flex-direction: column; gap: 18px; transition-delay: .08s">
+<div class="ico" style="width: 48px; height: 48px; border: 1px solid #3A3F3C; display: flex; align-items: center; justify-content: center; color: #EDEEE9"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M8 4H7a2 2 0 0 0-2 2v4l-2 2 2 2v4a2 2 0 0 0 2 2h1"></path><path d="M16 4h1a2 2 0 0 1 2 2v4l2 2-2 2v4a2 2 0 0 1-2 2h-1"></path></svg></div>
+<div style="display: flex; align-items: baseline; gap: 10px"><span style="font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 12px; color: #8C938F">02</span><h3 style="margin: 0; font-size: 21px; font-weight: 600; letter-spacing: -0.01em">Constrain it</h3></div>
+<p style="margin: 0; font-size: 15px; line-height: 1.6; color: #A8AEAA">Structured JSON outputs and tool calling, parsed and validated — the backend never guesses what the model meant.</p>
+<span style="margin-top: auto; font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 12px; color: #8C938F">in → every system here</span>
+</div>
+<div class="rv lift" style="background: #0C0E0D; padding: 32px 28px 36px; display: flex; flex-direction: column; gap: 18px; transition-delay: .16s">
+<div class="ico" style="width: 48px; height: 48px; border: 1px solid #3A3F3C; display: flex; align-items: center; justify-content: center; color: #EDEEE9"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 3v6c0 4.5-3.4 8.3-8 9-4.6-.7-8-4.5-8-9V6l8-3z"></path><path d="M8.5 12l2.5 2.5 4.5-5"></path></svg></div>
+<div style="display: flex; align-items: baseline; gap: 10px"><span style="font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 12px; color: #8C938F">03</span><h3 style="margin: 0; font-size: 21px; font-weight: 600; letter-spacing: -0.01em">Verify it</h3></div>
+<p style="margin: 0; font-size: 15px; line-height: 1.6; color: #A8AEAA">Hallucination detection and post-processing checks run before anything reaches a user.</p>
+<span style="margin-top: auto; font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 12px; color: #8C938F">in → Globiculum, Telic agents</span>
+</div>
+<div class="rv lift" style="background: #0C0E0D; padding: 32px 28px 36px; display: flex; flex-direction: column; gap: 18px; transition-delay: .24s">
+<div class="ico" style="width: 48px; height: 48px; border: 1px solid #3A3F3C; display: flex; align-items: center; justify-content: center; color: #EDEEE9"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12h4l3-8 4 16 3-8h4"></path></svg></div>
+<div style="display: flex; align-items: baseline; gap: 10px"><span style="font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 12px; color: #8C938F">04</span><h3 style="margin: 0; font-size: 21px; font-weight: 600; letter-spacing: -0.01em">Observe it</h3></div>
+<p style="margin: 0; font-size: 15px; line-height: 1.6; color: #A8AEAA">Agent traces, tool-call logs, retries and failure handling — production stays boring, in the good way.</p>
+<span style="margin-top: auto; font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 12px; color: #8C938F">in → FinOps, Video-to-SOP</span>
+</div>
+</div>
+</section>
+
+<!-- CHAPTER 03 — JOURNEY -->
+<section id="journey" style="border-top: 1px solid #222624; background: #0F1211">
+<div style="max-width: 1240px; margin: 0 auto; padding: clamp(96px, 11vw, 144px) clamp(20px, 5vw, 64px)">
+<div class="rv" style="display: flex; flex-direction: column; gap: 16px; margin-bottom: 64px">
+<span style="font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 13px; color: {{accent}}; letter-spacing: 0.06em; text-transform: uppercase">Chapter 03 — The journey</span>
+<h2 style="margin: 0; font-family: 'Instrument Serif', Georgia, serif; font-weight: 400; font-size: clamp(42px, 5.4vw, 72px); line-height: 1; letter-spacing: -0.02em">From fundamentals<br>to production.</h2>
+</div>
+
+<div ref="{{setTl}}" style="position: relative; padding-left: 40px">
+<div aria-hidden="true" style="position: absolute; left: 7px; top: 8px; bottom: 8px; width: 1px; background: #2A2E2C"></div>
+<div ref="{{setTlFill}}" aria-hidden="true" style="position: absolute; left: 7px; top: 8px; bottom: 8px; width: 1px; background: {{accent}}; transform: scaleY(1); transform-origin: top"></div>
+
+<div style="display: flex; flex-direction: column; gap: 56px">
+<div class="rv tl-item" style="position: relative; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(280px, 100%), 1fr)); gap: 16px 48px">
+<span class="tl-dot" aria-hidden="true" style="position: absolute; left: -40px; top: 4px; width: 15px; height: 15px; border-radius: 50%; border: 1px solid #4A504C; background: #0F1211; box-sizing: border-box"></span>
+<div style="display: flex; flex-direction: column; gap: 8px">
+<span style="font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 13px; color: #8C938F">Sep 2020 — Jun 2024</span>
+<h3 style="margin: 0; font-size: 22px; font-weight: 600; letter-spacing: -0.01em">The foundation</h3>
+<span style="font-size: 15px; color: #A8AEAA">B.Tech, AI &amp; Machine Learning · JNTU Hyderabad</span>
+</div>
+<div style="display: flex; flex-direction: column; gap: 16px">
+<p style="margin: 0; font-size: 16px; line-height: 1.65; color: #C6CAC7">Machine learning, deep learning, NLP and computer vision — the fundamentals everything later is built on.</p>
+<div style="display: flex; flex-wrap: wrap; gap: 8px">
+<span style="display: flex; align-items: center; gap: 8px; border: 1px solid #2A2E2C; padding: 8px 12px; font-size: 13px"><svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="{{accent}}" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="9" r="6"></circle><path d="M8.5 14L7 22l5-3 5 3-1.5-8"></path></svg>Generative AI · DeepLearning.AI</span>
+<span style="display: flex; align-items: center; gap: 8px; border: 1px solid #2A2E2C; padding: 8px 12px; font-size: 13px"><svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="{{accent}}" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="9" r="6"></circle><path d="M8.5 14L7 22l5-3 5 3-1.5-8"></path></svg>Conversational AI · AWS</span>
+<span style="display: flex; align-items: center; gap: 8px; border: 1px solid #2A2E2C; padding: 8px 12px; font-size: 13px"><svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="{{accent}}" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="9" r="6"></circle><path d="M8.5 14L7 22l5-3 5 3-1.5-8"></path></svg>Data Analytics · Accenture</span>
+</div>
+</div>
+</div>
+
+<div class="rv tl-item" style="position: relative; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(280px, 100%), 1fr)); gap: 16px 48px">
+<span class="tl-dot" aria-hidden="true" style="position: absolute; left: -40px; top: 4px; width: 15px; height: 15px; border-radius: 50%; border: 1px solid #4A504C; background: #0F1211; box-sizing: border-box"></span>
+<div style="display: flex; flex-direction: column; gap: 8px">
+<span style="font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 13px; color: #8C938F">Nov 2024 — Dec 2025</span>
+<h3 style="margin: 0; font-size: 22px; font-weight: 600; letter-spacing: -0.01em">First agents in the wild</h3>
+<span style="font-size: 15px; color: #A8AEAA">AI Developer · Telic Info Services, Chennai</span>
+</div>
+<div style="display: flex; flex-direction: column; gap: 12px; font-size: 16px; line-height: 1.65; color: #C6CAC7">
+<p style="margin: 0">Agentic applications that automate document processing, email handling and operational workflows — LLMs, RAG and tool calling, with verification pipelines on the output.</p>
+<p style="margin: 0">End-to-end Python services (FastAPI/Flask) with structured-output agent workflows and REST integrations for enterprise use cases.</p>
+</div>
+</div>
+
+<div class="rv tl-item" style="position: relative; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(280px, 100%), 1fr)); gap: 16px 48px">
+<span class="tl-dot" aria-hidden="true" style="position: absolute; left: -40px; top: 4px; width: 15px; height: 15px; border-radius: 50%; border: 1px solid #4A504C; background: #0F1211; box-sizing: border-box"></span>
+<div style="display: flex; flex-direction: column; gap: 8px">
+<span style="font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 13px; color: {{accent}}">Apr 2026 — Present</span>
+<h3 style="margin: 0; font-size: 22px; font-weight: 600; letter-spacing: -0.01em">Owning the whole system</h3>
+<span style="font-size: 15px; color: #A8AEAA">AI Native Full Stack &amp; Middleware Engineer · Arna Intelligence, Hyderabad</span>
+</div>
+<div style="display: flex; flex-direction: column; gap: 12px; font-size: 16px; line-height: 1.65; color: #C6CAC7">
+<p style="margin: 0">An end-to-end RAG curriculum-alignment platform: Python ingestion embedding NCERT and US Common Core, Supabase Edge Functions, and a React/TypeScript front end.</p>
+<p style="margin: 0">Prompt design, structured JSON parsing, hallucination detection and validation for a Gemini agent that turns curriculum gaps into actionable bridge timelines.</p>
+</div>
+</div>
+
+<div class="rv tl-item" style="position: relative; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(280px, 100%), 1fr)); gap: 16px 48px">
+<span class="tl-dot" aria-hidden="true" style="position: absolute; left: -40px; top: 4px; width: 15px; height: 15px; border-radius: 50%; border: 1px dashed #6E7571; background: #0F1211; box-sizing: border-box"></span>
+<div style="display: flex; flex-direction: column; gap: 8px">
+<span style="font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 13px; color: #8C938F">Next</span>
+<h3 style="margin: 0; font-family: 'Instrument Serif', Georgia, serif; font-weight: 400; font-style: italic; font-size: 32px; letter-spacing: -0.01em">Your hardest AI problem?</h3>
+</div>
+<div style="display: flex; align-items: center">
+<a class="btn-g" href="#contact" data-cursor="Talk" style="display: flex; align-items: center; gap: 10px; padding: 14px 20px; border: 1px solid #3A3F3C; font-weight: 500; font-size: 15px">Start the next chapter
+<svg aria-hidden="true" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M3 8h10M9 4l4 4-4 4"></path></svg>
+</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- CHAPTER 04 — STACK -->
+<section id="stack" style="max-width: 1240px; margin: 0 auto; padding: clamp(96px, 11vw, 144px) clamp(20px, 5vw, 64px)">
+<div class="rv" style="display: flex; flex-direction: column; gap: 16px; margin-bottom: 56px">
+<span style="font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 13px; color: {{accent}}; letter-spacing: 0.06em; text-transform: uppercase">Chapter 04 — The toolkit</span>
+<h2 style="margin: 0; font-family: 'Instrument Serif', Georgia, serif; font-weight: 400; font-size: clamp(42px, 5.4vw, 72px); line-height: 1; letter-spacing: -0.02em">Tools I ship with.</h2>
+</div>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(340px, 100%), 1fr)); gap: 1px; background: #2A2E2C; border: 1px solid #2A2E2C">
+<div class="rv lift" style="background: #0C0E0D; padding: 28px; display: flex; flex-direction: column; gap: 18px">
+<div style="display: flex; align-items: center; gap: 14px"><span class="ico" style="width: 40px; height: 40px; border: 1px solid #3A3F3C; display: flex; align-items: center; justify-content: center; color: #EDEEE9"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><circle cx="12" cy="12" r="3"></circle><circle cx="4" cy="6" r="2"></circle><circle cx="20" cy="6" r="2"></circle><circle cx="4" cy="18" r="2"></circle><circle cx="20" cy="18" r="2"></circle><path d="M6 7l3.5 3M18 7l-3.5 3M6 17l3.5-3M18 17l-3.5-3"></path></svg></span><span style="font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 13px; color: {{accent}}">LLMs &amp; agents</span></div>
+<p style="margin: 0; font-size: 16px; line-height: 1.7; color: #C6CAC7">LangChain · AutoGen · OpenAI · Gemini · Llama 3 · tool calling · structured outputs · prompt optimisation · model evaluation</p>
+</div>
+<div class="rv lift" style="background: #0C0E0D; padding: 28px; display: flex; flex-direction: column; gap: 18px; transition-delay: .06s">
+<div style="display: flex; align-items: center; gap: 14px"><span class="ico" style="width: 40px; height: 40px; border: 1px solid #3A3F3C; display: flex; align-items: center; justify-content: center; color: #EDEEE9"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><circle cx="11" cy="11" r="7"></circle><path d="M20 20l-4-4"></path></svg></span><span style="font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 13px; color: {{accent}}">Retrieval</span></div>
+<p style="margin: 0; font-size: 16px; line-height: 1.7; color: #C6CAC7">RAG · Supabase pgvector · ChromaDB · HuggingFace embeddings · Gemini embeddings · PostgreSQL</p>
+</div>
+<div class="rv lift" style="background: #0C0E0D; padding: 28px; display: flex; flex-direction: column; gap: 18px; transition-delay: .12s">
+<div style="display: flex; align-items: center; gap: 14px"><span class="ico" style="width: 40px; height: 40px; border: 1px solid #3A3F3C; display: flex; align-items: center; justify-content: center; color: #EDEEE9"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><rect x="3" y="4" width="18" height="7" rx="1"></rect><rect x="3" y="13" width="18" height="7" rx="1"></rect><path d="M7 7.5h.01M7 16.5h.01"></path></svg></span><span style="font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 13px; color: {{accent}}">Backend</span></div>
+<p style="margin: 0; font-size: 16px; line-height: 1.7; color: #C6CAC7">Python · FastAPI · Flask · Django · REST API design · WebSockets · Supabase Edge Functions (Deno/TS)</p>
+</div>
+<div class="rv lift" style="background: #0C0E0D; padding: 28px; display: flex; flex-direction: column; gap: 18px">
+<div style="display: flex; align-items: center; gap: 14px"><span class="ico" style="width: 40px; height: 40px; border: 1px solid #3A3F3C; display: flex; align-items: center; justify-content: center; color: #EDEEE9"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><rect x="3" y="4" width="18" height="16" rx="1"></rect><path d="M3 9h18M9 9v11"></path></svg></span><span style="font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 13px; color: {{accent}}">Frontend</span></div>
+<p style="margin: 0; font-size: 16px; line-height: 1.7; color: #C6CAC7">React · TypeScript · Vite · Material UI · JavaScript</p>
+</div>
+<div class="rv lift" style="background: #0C0E0D; padding: 28px; display: flex; flex-direction: column; gap: 18px; transition-delay: .06s">
+<div style="display: flex; align-items: center; gap: 14px"><span class="ico" style="width: 40px; height: 40px; border: 1px solid #3A3F3C; display: flex; align-items: center; justify-content: center; color: #EDEEE9"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 18a4 4 0 0 1-.6-8A6 6 0 0 1 18 9a4.5 4.5 0 0 1-.5 9H7z"></path></svg></span><span style="font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 13px; color: {{accent}}">Cloud &amp; ops</span></div>
+<p style="margin: 0; font-size: 16px; line-height: 1.7; color: #C6CAC7">GCP Cloud Run · Cloud Storage · AWS · Docker · GitLab CI/CD</p>
+</div>
+<div class="rv lift" style="background: #0C0E0D; padding: 28px; display: flex; flex-direction: column; gap: 18px; transition-delay: .12s">
+<div style="display: flex; align-items: center; gap: 14px"><span class="ico" style="width: 40px; height: 40px; border: 1px solid #3A3F3C; display: flex; align-items: center; justify-content: center; color: #EDEEE9"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12z"></path><circle cx="12" cy="12" r="3"></circle></svg></span><span style="font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 13px; color: {{accent}}">Vision &amp; ML</span></div>
+<p style="margin: 0; font-size: 16px; line-height: 1.7; color: #C6CAC7">Computer vision · OpenCV · FFmpeg · TensorFlow · NLP · deep learning</p>
+</div>
+</div>
+</section>
+
+<!-- EPILOGUE / CONTACT -->
+<footer id="contact" style="border-top: 1px solid #222624; position: relative; overflow: hidden">
+<div style="max-width: 1240px; margin: 0 auto; padding: clamp(96px, 12vw, 160px) clamp(20px, 5vw, 64px) 40px; display: flex; flex-direction: column; gap: 48px">
+<span class="rv" style="font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 13px; color: {{accent}}; letter-spacing: 0.06em; text-transform: uppercase">Epilogue</span>
+<h2 class="rv" style="margin: 0; max-width: 1040px; font-family: 'Instrument Serif', Georgia, serif; font-weight: 400; font-size: clamp(52px, 7.6vw, 112px); line-height: 0.98; letter-spacing: -0.03em; text-wrap: balance">Have an AI problem that needs to <em style="color: {{accent}}">actually work?</em></h2>
+<div class="rv" style="display: flex; flex-wrap: wrap; align-items: center; gap: 12px">
+<a class="btn-p" href="mailto:sushmakarnati14@gmail.com" data-cursor="Write" onMouseMove="{{mag}}" onMouseLeave="{{magOut}}" style="display: flex; align-items: center; gap: 12px; padding: 20px 28px; background: {{accent}}; color: #0C0E0D; font-weight: 600; font-size: clamp(16px, 1.6vw, 20px)">sushmakarnati14@gmail.com
+<svg aria-hidden="true" width="18" height="18" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M4 12L12 4M6 4h6v6"></path></svg>
+</a>
+<button type="button" class="btn-g" onClick="{{copy}}" data-cursor="Copy" style="display: flex; align-items: center; gap: 10px; padding: 20px 22px; border: 1px solid #3A3F3C; font-weight: 500; font-size: 16px; min-height: 44px">
+<svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="8" y="8" width="12" height="12" rx="1"></rect><path d="M16 8V5a1 1 0 0 0-1-1H5a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h3"></path></svg>
+<span>{{copyLabel}}</span>
+</button>
+<a class="btn-g diag" href="https://linkedin.com/in/sushmakarnati" data-cursor="Open" style="display: flex; align-items: center; gap: 10px; padding: 20px 22px; border: 1px solid #3A3F3C; font-weight: 500; font-size: 16px">LinkedIn
+<svg aria-hidden="true" width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M4 12L12 4M6 4h6v6"></path></svg>
+</a>
+<a class="btn-g diag" href="https://github.com/karnatisushma" data-cursor="Open" style="display: flex; align-items: center; gap: 10px; padding: 20px 22px; border: 1px solid #3A3F3C; font-weight: 500; font-size: 16px">GitHub
+<svg aria-hidden="true" width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M4 12L12 4M6 4h6v6"></path></svg>
+</a>
+</div>
+<div style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; padding-top: 32px; border-top: 1px solid #222624; font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 12px; color: #8C938F">
+<span>© 2026 Sushma Karnati · AI Engineer · Hyderabad</span>
+<a href="#top" data-cursor="Top" style="color: #8C938F; display: flex; align-items: center; gap: 8px; min-height: 24px">Back to top
+<svg aria-hidden="true" width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M8 13V3M4 7l4-4 4 4"></path></svg>
+</a>
+</div>
+</div>
+</footer>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"accent":{"editor":"color","default":"#D4F25A","options":["#D4F25A","#7CC4FF","#FFB067","#C9A7FF"]},"customCursor":{"editor":"boolean","default":true},"$preview":{"width":1440,"height":7600}}'>
+var STAGES = [
+  { label: 'Ingest', title: 'Ingest the standards', body: 'Python pipelines break NCERT and US Common Core into curriculum nodes — subject, grade band and learning objective — ready to embed.' },
+  { label: 'Embed', title: 'Embed every objective', body: 'Gemini embeddings turn each learning objective into a vector, so "fractions in grade 5" can be compared with its counterpart on another board by meaning, not by wording.' },
+  { label: 'Retrieve', title: 'Match across boards', body: 'Supabase pgvector runs the semantic search that lines up curriculum nodes across systems and grade bands — the evidence the agent reasons over.' },
+  { label: 'Reason', title: 'Find the gaps', body: 'A Gemini agent compares what the student has covered against the target board, injects source URLs, and scores each gap with an adaptive percentile model.' },
+  { label: 'Verify', title: 'Trust, then verify', body: 'Structured JSON output is parsed and validated, and hallucination checks reject anything the retrieved curriculum does not support — inside JWT-authenticated, rate-limited Edge Functions.' },
+  { label: 'Deliver', title: 'Hand over a plan', body: 'Gaps classified Critical, Major or Moderate become a phase-wise bridge timeline with linked study resources — shown in live dashboards and exportable as PDF.' }
+];
+var WORDS = 4;
+class Component extends DCLogic {
+  componentDidMount() {
+    var self = this;
+    var w = window;
+    var mm = function (q) { return !!(w.matchMedia && w.matchMedia(q).matches); };
+    this.reduced = mm('(prefers-reduced-motion: reduce)');
+    this.fine = mm('(pointer: fine)');
+    this.mx = -100; this.my = -100; this.rx = -100; this.ry = -100;
+    var next = { js: true };
+
+    var els = this.root ? this.root.querySelectorAll('.rv') : [];
+    if ('IntersectionObserver' in w && !this.reduced) {
+      this.io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (en) {
+          if (en.isIntersecting) { en.target.classList.add('in'); self.io.unobserve(en.target); }
+        });
+      }, { threshold: 0.12, rootMargin: '0px 0px -6% 0px' });
+      Array.prototype.forEach.call(els, function (el) { self.io.observe(el); });
+      if (this.metricsEl) {
+        next.c = { a: 0, b: 0, c: 0, d: 0 };
+        this.mio = new IntersectionObserver(function (en) {
+          if (en[0] && en[0].isIntersecting) { self.count(); self.mio.disconnect(); }
+        }, { threshold: 0.35 });
+        this.mio.observe(this.metricsEl);
+      }
+    } else {
+      Array.prototype.forEach.call(els, function (el) { el.classList.add('in'); });
+    }
+    this.setState(next);
+
+    if (!this.reduced) {
+      this.wordTimer = setInterval(function () {
+        self.setState({ wi: ((self.state.wi || 0) + 1) % WORDS });
+      }, 2600);
+      this.stageTimer = setInterval(function () {
+        if (!self.state.userPicked) self.setState({ stage: ((self.state.stage || 0) + 1) % STAGES.length });
+      }, 3400);
+    }
+
+    this.onScroll = function () {
+      var de = document.documentElement;
+      var max = de.scrollHeight - w.innerHeight;
+      var p = max > 0 ? (w.scrollY || de.scrollTop) / max : 0;
+      if (self.bar) self.bar.style.transform = 'scaleX(' + p + ')';
+      if (self.tl && self.tlFill) {
+        var t = 1;
+        if (max > 0) {
+          var r = self.tl.getBoundingClientRect();
+          t = Math.min(1, Math.max(0, (w.innerHeight * 0.65 - r.top) / r.height));
+        }
+        self.tlFill.style.transform = 'scaleY(' + t + ')';
+      }
+    };
+    w.addEventListener('scroll', this.onScroll, { passive: true });
+    w.addEventListener('resize', this.onScroll);
+    this.onScroll();
+
+    if (this.fine && !this.reduced) {
+      var loop = function () {
+        self.rx += (self.mx - self.rx) * 0.16;
+        self.ry += (self.my - self.ry) * 0.16;
+        if (self.dot) self.dot.style.transform = 'translate3d(' + self.mx + 'px,' + self.my + 'px,0)';
+        if (self.ring) self.ring.style.transform = 'translate3d(' + self.rx + 'px,' + self.ry + 'px,0)';
+        self.raf = requestAnimationFrame(loop);
+      };
+      this.raf = requestAnimationFrame(loop);
+    }
+  }
+  componentWillUnmount() {
+    clearInterval(this.wordTimer); clearInterval(this.stageTimer);
+    if (this.raf) cancelAnimationFrame(this.raf);
+    if (this.io) this.io.disconnect();
+    if (this.mio) this.mio.disconnect();
+    if (this.onScroll) { window.removeEventListener('scroll', this.onScroll); window.removeEventListener('resize', this.onScroll); }
+    if (this.ac && this.ac.close) this.ac.close();
+  }
+  count() {
+    var self = this, start = null, dur = 1600;
+    var target = { a: 97, b: 10, c: 5, d: 15 };
+    var step = function (ts) {
+      if (start === null) start = ts;
+      var k = Math.min(1, (ts - start) / dur);
+      var e = 1 - Math.pow(1 - k, 3);
+      self.setState({ c: { a: Math.round(target.a * e), b: Math.round(target.b * e), c: Math.round(target.c * e), d: Math.round(target.d * e) } });
+      if (k < 1) requestAnimationFrame(step);
+    };
+    requestAnimationFrame(step);
+  }
+  blip(kind) {
+    if (!this.state.sound || !this.ac) return;
+    var now = (window.performance && performance.now()) || Date.now();
+    if (kind === 'hover' && now - (this.lastBlip || 0) < 80) return;
+    this.lastBlip = now;
+    var ctx = this.ac, t = ctx.currentTime;
+    var tone = function (type, f0, f1, peak, dur, delay) {
+      var o = ctx.createOscillator(), g = ctx.createGain(), s = t + (delay || 0);
+      o.type = type;
+      o.frequency.setValueAtTime(f0, s);
+      o.frequency.exponentialRampToValueAtTime(f1, s + dur * 0.8);
+      g.gain.setValueAtTime(0.0001, s);
+      g.gain.exponentialRampToValueAtTime(peak, s + 0.006);
+      g.gain.exponentialRampToValueAtTime(0.0001, s + dur);
+      o.connect(g); g.connect(ctx.destination);
+      o.start(s); o.stop(s + dur + 0.02);
+    };
+    if (kind === 'hover') tone('sine', 2400, 1800, 0.018, 0.05);
+    else if (kind === 'click') tone('triangle', 640, 300, 0.05, 0.11);
+    else if (kind === 'step') tone('sine', 880, 1320, 0.03, 0.09);
+    else if (kind === 'on') { tone('sine', 660, 660, 0.035, 0.09); tone('sine', 990, 990, 0.035, 0.12, 0.08); }
+  }
+  renderVals() {
+    var self = this;
+    var st = this.state || {};
+    var accent = this.props.accent ?? '#D4F25A';
+    var cursorOn = (this.props.customCursor ?? true) && !!st.cursorActive;
+    if (!this._setRoot) {
+      this._setRoot = function (el) { self.root = el; };
+      this._setDot = function (el) { self.dot = el; };
+      this._setRing = function (el) { self.ring = el; };
+      this._setBar = function (el) { self.bar = el; };
+      this._setTl = function (el) { self.tl = el; };
+      this._setTlFill = function (el) { self.tlFill = el; };
+      this._setMetrics = function (el) { self.metricsEl = el; };
+    }
+    var si = st.stage || 0;
+    var stages = STAGES.map(function (s, i) {
+      return {
+        label: s.label,
+        num: '0' + (i + 1),
+        cls: 'pnode' + (i === si ? ' on' : ''),
+        pressed: i === si ? 'true' : 'false',
+        notLast: i < STAGES.length - 1,
+        pick: function () { self.setState({ stage: i, userPicked: true }); self.blip('step'); }
+      };
+    });
+    var cur = STAGES[si];
+    var rootClass = [st.js ? 'is-js' : '', cursorOn ? 'has-cursor' : '', st.out ? 'cur-out' : '', st.hov ? 'cur-hov' : ''].join(' ').trim();
+    return {
+      accent: accent,
+      rootClass: rootClass,
+      ringClass: 'cur-ring' + (st.hov ? ' hov' : '') + (st.down ? ' down' : ''),
+      hoverLabel: st.hl || '',
+      wordY: '-' + ((st.wi || 0) * 1.2).toFixed(1) + 'em',
+      c: st.c || { a: 97, b: 10, c: 5, d: 15 },
+      stages: stages,
+      stage: { num: '0' + (si + 1), title: cur.title, body: cur.body, pct: Math.round(((si + 1) / STAGES.length) * 100) + '%' },
+      soundOn: !!st.sound,
+      soundOff: !st.sound,
+      soundPressed: st.sound ? 'true' : 'false',
+      soundCursor: st.sound ? 'Mute' : 'Sound',
+      copyLabel: st.copied ? 'Copied' : 'Copy email',
+      setRoot: this._setRoot, setDot: this._setDot, setRing: this._setRing, setBar: this._setBar,
+      setTl: this._setTl, setTlFill: this._setTlFill, setMetrics: this._setMetrics,
+      onMove: function (e) {
+        self.mx = e.clientX; self.my = e.clientY;
+        if (self.fine && !self.reduced && !self.state.cursorActive) {
+          self.rx = e.clientX; self.ry = e.clientY;
+          self.setState({ cursorActive: true });
+        }
+      },
+      onEnter: function () { if (self.state.out) self.setState({ out: false }); },
+      onLeave: function () { self.setState({ out: true, hov: false }); self.hovEl = null; },
+      onOver: function (e) {
+        var t = e.target && e.target.closest ? e.target.closest('a,button,[data-cursor]') : null;
+        if (t === self.hovEl) return;
+        self.hovEl = t;
+        var label = t ? (t.getAttribute('data-cursor') || '') : '';
+        self.setState({ hov: !!t, hl: label });
+        if (t) self.blip('hover');
+      },
+      onDown: function () { self.setState({ down: true }); if (self.hovEl) self.blip('click'); },
+      onUp: function () { self.setState({ down: false }); },
+      toggleSound: function () {
+        var on = !self.state.sound;
+        if (on && !self.ac) {
+          var AC = window.AudioContext || window.webkitAudioContext;
+          if (AC) { try { self.ac = new AC(); } catch (err) { self.ac = null; } }
+        }
+        if (self.ac && self.ac.state === 'suspended') self.ac.resume();
+        self.setState({ sound: on }, function () { if (on) self.blip('on'); });
+      },
+      copy: function () {
+        var done = function () {
+          self.setState({ copied: true });
+          clearTimeout(self.copyT);
+          self.copyT = setTimeout(function () { self.setState({ copied: false }); }, 1800);
+        };
+        try {
+          if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText('sushmakarnati14@gmail.com').then(done, function () {});
+        } catch (err) {}
+      },
+      spot: function (e) {
+        var el = e.currentTarget; if (!el) return;
+        var r = el.getBoundingClientRect();
+        el.style.setProperty('--mx', (e.clientX - r.left) + 'px');
+        el.style.setProperty('--my', (e.clientY - r.top) + 'px');
+      },
+      mag: function (e) {
+        if (self.reduced) return;
+        var el = e.currentTarget; if (!el) return;
+        var r = el.getBoundingClientRect();
+        var x = (e.clientX - (r.left + r.width / 2)) * 0.22;
+        var y = (e.clientY - (r.top + r.height / 2)) * 0.32;
+        el.style.transform = 'translate(' + x.toFixed(1) + 'px,' + y.toFixed(1) + 'px)';
+      },
+      magOut: function (e) { if (e.currentTarget) e.currentTarget.style.transform = ''; }
+    };
+  }
+}
+</script>
+</body>
+</html>
